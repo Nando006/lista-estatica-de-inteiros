@@ -4,6 +4,7 @@
 
 #include <stdio.h>
 #include <locale.h>
+
 #define MAX_SIZE 10
 
 int lista[MAX_SIZE];
@@ -12,9 +13,9 @@ int tamanho = 0;
 int adicionar(int n) {
   if(tamanho < MAX_SIZE) {
     lista[tamanho++] = n;
-    return 1; // 1 é para quando retornar com sucesso
+    return 1;
   }
-  return 0; // Falha (lista cheia)
+  return 0;
 }
 
 int remover(int n) {
@@ -24,19 +25,19 @@ int remover(int n) {
         lista[j] = lista[j + 1];
       }
       tamanho--;
-      return 1; // Sucesso
+      return 1;
     }
   }
-  return 0; // Falha (elemento não encontrado)
+  return 0;
 }
 
 int buscar(int n) {
   for(int i = 0; i < tamanho; i++) {
     if(lista[i] == n) {
-      return i; // Retorna a posição do elemento
+      return lista[i];
     }
   }
-  return -1; // Elemento não encontrado
+  return -1;
 }
 
 void exibir_lista() {
@@ -52,22 +53,15 @@ int main() {
 
   adicionar(5);
   adicionar(10);
-  adicionar(15);
+  adicionar(20);
+  adicionar(30);
 
-  printf("Após a adições:\n");
   exibir_lista();
+
+  printf("Buscar número = %d \n", buscar(10));
 
   remover(10);
 
-  printf("Após a remoção do 10:\n");
   exibir_lista();
 
-  int pos = buscar(15);
-  if(pos != -1) {
-    printf("Elemento 15 encontrado na posição %d\n", pos);
-  } else {
-    printf("Elemento 15 não encontrado\n");
-  }
-
-  return 0;
 }
