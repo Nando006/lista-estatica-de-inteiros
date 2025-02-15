@@ -1,2 +1,2 @@
-# lista-estatica-de-inteiros
- Listas estáticas em C
+# Estudando Lista estática em C
+#Faculdade 
