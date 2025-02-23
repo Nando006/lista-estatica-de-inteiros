@@ -15,53 +15,33 @@ int adicionar(int n) {
     lista[tamanho++] = n;
     return 1;
   }
+
   return 0;
 }
 
 int remover(int n) {
   for(int i = 0; i < tamanho; i++) {
     if(lista[i] == n) {
-      for(int j = i; j < tamanho - 1; j++) {
+      for(int j = i; j < tamanho--; j++) {
         lista[j] = lista[j + 1];
       }
-      tamanho--;
-      return 1;
     }
   }
-  return 0;
 }
 
-int buscar(int n) {
-  for(int i = 0; i < tamanho; i++) {
-    if(lista[i] == n) {
-      return lista[i];
-    }
-  }
-  return -1;
-}
-
-void exibir_lista() {
-  printf("Lista: ");
+void exibir() {
   for(int i = 0; i < tamanho; i++) {
     printf(" %d", lista[i]);
   }
-  printf("\n");
 }
 
 int main() {
   setlocale(LC_ALL, "Portuguese");
+  for(int i = 0; i < MAX_SIZE; i++) {
+    adicionar(i + 1);
+  }
 
-  adicionar(5);
-  adicionar(10);
-  adicionar(20);
-  adicionar(30);
+  exibir();
 
-  exibir_lista();
-
-  printf("Buscar número = %d \n", buscar(10));
-
-  remover(10);
-
-  exibir_lista();
-
+  return 0;
 }
